@@ -1,0 +1,10 @@
+W:\GreenTube\src\Greentube\bin\Debug\Greentube.dll
+W:\GreenTube\src\Greentube\bin\Debug\Greentube.pdb
+W:\GreenTube\src\Greentube\obj\Debug\Greentube.csprojResolveAssemblyReference.cache
+W:\GreenTube\src\Greentube\obj\Debug\Greentube.dll
+W:\GreenTube\src\Greentube\obj\Debug\Greentube.pdb
+W:\GreenTube\GreeenTubeGames\Greentube\bin\Debug\Greentube.dll
+W:\GreenTube\GreeenTubeGames\Greentube\bin\Debug\Greentube.pdb
+W:\GreenTube\GreeenTubeGames\Greentube\obj\Debug\Greentube.csprojResolveAssemblyReference.cache
+W:\GreenTube\GreeenTubeGames\Greentube\obj\Debug\Greentube.dll
+W:\GreenTube\GreeenTubeGames\Greentube\obj\Debug\Greentube.pdb

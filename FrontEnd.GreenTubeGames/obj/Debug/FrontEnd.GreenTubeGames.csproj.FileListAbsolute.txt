@@ -1,0 +1,5 @@
+W:\GreenTube\GreeenTubeGames\FrontEnd.GreenTubeGames\bin\FrontEnd.GreenTubeGames.dll.config
+W:\GreenTube\GreeenTubeGames\FrontEnd.GreenTubeGames\bin\FrontEnd.GreenTubeGames.dll
+W:\GreenTube\GreeenTubeGames\FrontEnd.GreenTubeGames\bin\FrontEnd.GreenTubeGames.pdb
+W:\GreenTube\GreeenTubeGames\FrontEnd.GreenTubeGames\obj\Debug\FrontEnd.GreenTubeGames.dll
+W:\GreenTube\GreeenTubeGames\FrontEnd.GreenTubeGames\obj\Debug\FrontEnd.GreenTubeGames.pdb

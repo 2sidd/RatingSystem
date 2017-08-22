@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GreenTube Games </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../Scripts/utilFunctions.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="../Scripts/Controller/gamesDataCtrl.js"></script>
+    <link href="../Style/CustomStyle.css" rel="stylesheet" />
+</head>
+
+<body>
+    
+    <div ng-app="greenTubeGames" ng-controller="gamesDataCtrl">
+        <!--Login Start-->
+        <div class="loginContainer">
+            <div class="row">
+                <img src="../Images/greentube-logo.png" class="logo" />
+                <div class="col-sm-4 hidden-xs loginBox">
+                    <div class="row" >
+
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="nickname" placeholder="Nick Name" ng-model="nickName">
+                            </div>
+                        </div>
+                        <div class="col-sm-2" ng-hide="isLoggedIn">
+                            <div class="form-group">
+                                <input type="button" value="login" class="btn btn-default btn-header-login" ng-click="Login(nickName)">
+                            </div>
+                        </div>
+                        <div class="col-sm-2" ng-hide="isLoggedIn==false">
+                            <div class="form-group">
+                                <input type="button" value="logout" class="btn btn-default btn-header-login" ng-click="Logout()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Login End-->
+        <!--Grid Start-->
+        <table class="table  table-hover data-table sort display">  
+            <thead>
+                <tr>
+                    <th class="Id"><a href="" ng-click="columnToOrder='GameId';reverse=!reverse">Id</a></th>
+                    <th class="Name"> <a href="" ng-click="columnToOrder='GameName';reverse=!reverse"> Name </a> </th>
+                    <th class="Rating"> <a href="" ng-click="columnToOrder='Rating';reverse=!reverse"> Rating </a> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in gamesList | orderBy:columnToOrder:reverse"  >
+                 
+                    <td ng-click="GameDetails(x)">{{ x.GameId }}</td>
+                    <td ng-click="GameDetails(x)">{{ x.GameName }}</td>
+
+                    <td ng-style="nickName==' '? {'pointer-events': 'none'} : {'pointer-events': 'all'}">
+                        <div ng-init="rating =x.Rating"></div>
+                        <div class="star-rating" star-rating rating-value="rating"
+                             data-max="5" on-rating-selected="rateFunction(x,rating)"></div>
+                        <div>Rated by <b>{{x.Count}}</b> users.</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Grid End-->
+        <!--Modal start-->
+        <div class="modal fade" id="gameDetailWindowModal" tabindex="-1" role="dialog" aria-labelledby="gameDetailWindowModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="gameDetailWindowModalLabel"><b>{{selectedGame.GameName}}</b></h4>
+                    </div>
+                    <div class="modal-body">
+                        Rating of <b>{{selectedGame.GameName}}</b> is <b>{{selectedGame.Rating}}</b>. <b>{{selectedGame.GameName}}</b> is rated by <b>{{selectedGame.Count}}</b> users.
+                        <ul ng-style="{'pointer-events': 'none'}" ng-repeat="y in selectedGame.gameRating">
+                            <li ng-hide="y.RatingCount==0">
+                                <div ng-init="rating =y.RatingType"></div>
+                                <div class="star-rating" star-rating rating-value="rating"
+                                     data-max="5"></div>
+                                <div>Rated by <b>{{y.RatingCount}}</b> users</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal end-->
+    </div>
+</body>
+</html>
